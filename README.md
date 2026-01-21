@@ -74,7 +74,23 @@ cd docker && docker build . -t <user>/newt:1.0.0
 
 This docker image contains all dependencies needed for running MMBench and Newt.
 
-### Option 3: Using a prebuilt docker image
+### Option 3: Building a Singularity/Apptainer image
+
+We provide a `newt.def` for easy installation. You can build the Singularity/Apptainer image by first moving your downloaded `.maniskill` asset directory to `docker/.maniskill` and then running
+
+```
+cd docker && singularity build --fakeroot --nv newt.sif newt.def
+```
+
+Or, if you are using Apptainer:
+
+```
+cd docker && apptainer build --fakeroot --nv newt.sif newt.def
+```
+
+This Singularity/Apptainer image contains all dependencies needed for running MMBench and Newt.
+
+### Option 4: Using a prebuilt docker image
 
 We provide a prebuilt docker image on Docker Hub that you can use directly without having to build the image yourself. You can pull the image by running
 
